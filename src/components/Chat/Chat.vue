@@ -19,6 +19,35 @@ useAutoScrollToBottom(messageListElement); // Using a "hook".
 
 // Provide the active user's id to all components in this tree. Similar to providing a React Context.
 provide("userId", USER_ID);
+
+function addToChat(event) {
+  //var newMessage = {content:"John", type:"text", senderId:50, timestamp:"blue"};
+  //var elementti = <ChatMessage content:"John", type:"text", senderId:50, timestamp:"blue" />
+  //alert(messages.value[1].content.type);
+  //alert(newMessage)
+
+  const newMessage = {
+    content: event,
+    type: "text",
+    senderId: USER_ID,
+    timestamp: new Date(),
+  };
+
+  //key="undefined:undefined"
+  //message="newMessage"
+ // (messages.value).push(event);
+ // messages.value.
+ //newValue = ChatMessage: {
+  
+
+
+
+//asdf.value = event
+
+ //ChatMessage.message newe = event
+  messages.value = [...messages.value, newMessage];
+}
+
 </script>
 
 <template>
@@ -38,7 +67,7 @@ provide("userId", USER_ID);
 
            Tip:  In your function, you can replace 'messages.value' directly ie. 'messages.value = [...messages.value, newMessage]'
       -->           
-      <Compose />
+      <Compose @send="addToChat" />
     </div>
   </CenterOnPage>
 </template>

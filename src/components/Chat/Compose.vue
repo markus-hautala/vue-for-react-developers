@@ -23,6 +23,9 @@ const emit = defineEmits(["send"]);
 function send() {
   // Hint: Call 'emit' with the correct arguments.
   //       Finally, clear the text input.
+  emit("send", text.value);
+  //alert(text.value);
+  text.value = "";
 }
 </script>
 
@@ -35,7 +38,7 @@ function send() {
       <Input :value="text" placeholder="Type a message" @change="onChange" />
 
       <!-- Hint: Call the 'send()' function when the button emits a 'click' event. -->
-      <Button icon="send" />
+      <Button icon="send" @click="send" />
     </div>
   </div>
 </template>
