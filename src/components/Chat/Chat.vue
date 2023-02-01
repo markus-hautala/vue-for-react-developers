@@ -18,9 +18,21 @@ const messages = ref(existingMessages);
  * @param {String} content Message content
  */
 function addMessage(content) {
+  //alert("message");
   const message = {
     content,
     type: "text", // Hint: you may want to parameterize this
+    senderId: USER_ID,
+    timestamp: new Date(),
+  };
+  messages.value = [...messages.value, message];
+}
+
+function addEmoji(indeksi) {
+  //alert(indeksi);
+  const message = {
+    content: indeksi,
+    type: "emoji", // Hint: you may want to parameterize this
     senderId: USER_ID,
     timestamp: new Date(),
   };
@@ -38,6 +50,7 @@ provide("userId", USER_ID);
 <template>
   <CenterOnPage>
     <div class="chat shadow-2">
+      Made by: Markus Hautala
       <div ref="messageListElement" class="message-list">
         <!-- Iterate over elements with v-for -->
         <ChatMessage
@@ -47,7 +60,7 @@ provide("userId", USER_ID);
         />
       </div>
 
-      <Compose @send="addMessage" />
+      <Compose @send="addMessage" @emoji="addEmoji" />
     </div>
   </CenterOnPage>
 </template>

@@ -24,12 +24,26 @@ function send() {
   emit("send", text.value); // Hint: You can provide more parameters to 'emit'.
   text.value = "";
 }
+
+function sendEmoji(index) {
+  emit("emoji", index);
+  //alert("emoji annettu");
+}
+
+function annaAlert() {
+  alert("varoitus");
+}
+
 </script>
 
 <template>
   <div class="compose">
     <!-- An emoji selector could go here, for example. The choice is yours! -->
-
+    <Button icon="shrug"    @click="sendEmoji('shrug')" />
+    <Button icon="octopus"  @click="sendEmoji('octopus')" />
+    <Button icon="mushroom" @click="sendEmoji('mushroom')" />
+    <Button icon="tent"     @click="sendEmoji('tent')" />
+    <Button icon="fire"     @click="sendEmoji('fire')" />
     <div class="message-row">
       <Input
         :value="text"
