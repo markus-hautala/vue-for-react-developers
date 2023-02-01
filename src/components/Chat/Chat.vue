@@ -50,7 +50,7 @@ provide("userId", USER_ID);
 <template>
   <CenterOnPage>
     <div class="chat shadow-2">
-      Made by: Markus Hautala
+      Excercise 2: Markus Hautala
       <div ref="messageListElement" class="message-list">
         <!-- Iterate over elements with v-for -->
         <ChatMessage
